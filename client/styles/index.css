@@ -1,8 +1,44 @@
-body {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 0;
-  padding: 20px;
-  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+.header {
+  background-image: url('https://source.unsplash.com/1600x900/?travel,nature');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.header h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.header p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.footer {
+  background-color: #2b6cb0;
+  color: #fff;
+  text-align: center;
+  padding: 20px 10px;
+  margin-top: 30px;
+}
+
+.footer a {
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.travel-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }

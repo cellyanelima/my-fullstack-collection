@@ -6,7 +6,7 @@ import trips from './routes/trips.js'
 
 const server = express()
 server.use(express.json())
-server.use('/api/v1/trips', trips)
+server.use('/api/v1/trips', trips) // localhost:3000/api/v1/trips
 
 // ADD YOUR API ROUTES HERE
 
