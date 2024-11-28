@@ -2,8 +2,11 @@ import * as Path from 'node:path'
 
 import express from 'express'
 
+import trips from './routes/trips.js'
+
 const server = express()
 server.use(express.json())
+server.use('/api/v1/trips', trips)
 
 // ADD YOUR API ROUTES HERE
 
