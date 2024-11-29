@@ -30,32 +30,21 @@ router.get('/:id', async (req, res) => {
 })
 
 // POST 'api/v1/trips'
-router.post('/', async (req, res) => {
-  const newTrip = req.body
-  if (!newTrip.location || !newTrip.year || newTrip.done === undefined) {
-    return res.status(400).json({ error: 'Missing required fields' })
-  }
-
-  try {
-    await db.addTrip(newTrip)
-    res.status(201).json({ message: 'Trip added successfully' })
-  } catch (error) {
-    console.error(`Database error: ${error}`)
-    res.status(500).json({ error: 'Failed to add trip' })
-  }
-})
-
-// PATCH 'api/v1/trips/:id'
 router.patch('/:id', async (req, res) => {
   const id = Number(req.params.id)
-  const { location, year, done } = req.body
-
-  if (isNaN(id) || !location || !year) {
+  const updatedTrip = req.body
+  if (
+    isNaN(id) ||
+    !updatedTrip.location ||
+    !updatedTrip.year ||
+    !updatedTrip.title ||
+    !updatedTrip.description
+  ) {
     return res.status(400).json({ error: 'Invalid request data' })
   }
   try {
-    await db.updateLocationAno({ id, location, year, done })
-    res.status(200).json({ message: 'Trip updated to done' })
+    const trip = await db.updateLocationAno({ id, ...updatedTrip })
+    res.status(200).json(trip) // Retorna os dados atualizados
   } catch (error) {
     console.error(`Database error: ${error}`)
     res.status(500).json({ error: 'Failed to update trip' })
@@ -68,7 +57,6 @@ router.patch('/done/:id', async (req, res) => {
   if (isNaN(id)) {
     return res.status(400).json({ error: 'ID invalid' })
   }
-
   try {
     await db.updateTripDone(id)
     res.status(200).json({ message: 'Trip marked as completed' })

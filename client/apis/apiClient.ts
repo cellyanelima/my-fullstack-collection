@@ -16,3 +16,15 @@ export async function fetchTripById(id: number): Promise<Trip> {
 export async function addNewTrip(newTrip: TripData) {
   await request.post(rootURL).send(newTrip)
 }
+
+export async function deleteTrip(id: number) {
+  await request.del(`${rootURL}/${id}`).then((res) => res)
+}
+
+export async function updateTrip(
+  id: number,
+  updatedTrip: TripData,
+): Promise<Trip> {
+  const response = await request.patch(`${rootURL}/${id}`).send(updatedTrip)
+  return response.body as Trip
+}

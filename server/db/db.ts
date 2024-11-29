@@ -15,12 +15,20 @@ export function addTrip(newTrip: TripData) {
   return db('trips').insert(newTrip)
 }
 
-export async function updateLocationAno(updatedTrip: Trip): Promise<void> {
-  const { id, location, year } = updatedTrip
+export async function updateLocationAno(updatedTrip: Trip): Promise<Trip> {
+  const { id, location, title, description, image, year, done } = updatedTrip
+
   await db('trips').where({ id }).update({
     location,
     year,
+    title,
+    description,
+    image,
+    done,
   })
+
+  const updatedRecord = await db('trips').where({ id }).first()
+  return updatedRecord as Trip
 }
 
 export function updateTripDone(id: number): Promise<number> {
