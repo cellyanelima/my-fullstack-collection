@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { Trip } from '../../models/trips'
 import { fetchTrips } from '../apis/apiClient'
+import TripCard from './TripCard.tsx'
 
 export default function TripsLis() {
   const {
@@ -17,34 +18,20 @@ export default function TripsLis() {
     return <p>Loading...</p>
   }
 
-  /*const trips = [
-    {
-      location: 'Canada',
-      year: '2027',
-      done: Boolean(false),
-    },
-    {
-      location: 'Russia',
-      year: '2017',
-      done: Boolean(true),
-    },
-    {
-      location: 'Belgium',
-      year: '2015',
-      done: Boolean(false),
-    },
-  ] as Trip[]*/
-
   return (
     <>
       <div className="travel-list">
-        {trips.map((trip, i) => {
-          return (
-            <p key={i}>
-              {trip.location} year = {trip.year} done = {trip.done}
-            </p>
-          )
-        })}
+        {trips.map((trip, index) => (
+          <TripCard
+            key={index}
+            title={trip.title}
+            description={trip.description}
+            image={trip.image}
+            location={trip.location}
+            year={trip.year}
+            done={trip.done}
+          />
+        ))}
       </div>
     </>
   )

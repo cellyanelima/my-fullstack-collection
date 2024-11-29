@@ -1,15 +1,11 @@
-import './Header.css'
-
-function Header() {
+export default function Header() {
   return (
     <header className="header">
-      <h1>Minhas Viagens</h1>
+      <h1>My trips</h1>
       <p>
-        Descubra os lugares incríveis que já visitei e os sonhos que estão por
-        vir!
+        Discover the incredible places I have
+        <br></br>visited and the dreams that lie ahead!
       </p>
     </header>
   )
 }
-
-export default Header

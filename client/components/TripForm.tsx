@@ -4,8 +4,11 @@ import { addNewTrip } from '../apis/apiClient'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 export default function TripForm() {
-  const [newTrip, setnewTrip] = useState('')
-  const [newYear, setnewYear] = useState('')
+  const [newTrip, setNewTrip] = useState('')
+  const [newTitle, setNewTitle] = useState('')
+  const [newDescription, setNewDescription] = useState('')
+  const [newYear, setNewYear] = useState('')
+  const [newImage, setNewImage] = useState('')
 
   //const [submitTrip, setSubmitTrip] = useState('') // change to useMutation
 
@@ -15,40 +18,62 @@ export default function TripForm() {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ['trips'] }),
   })
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setnewTrip(e.target.value)
+  const handleChangeTrip = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNewTrip(e.target.value)
+    setNewTrip('')
   }
 
-  const handleYearChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setnewYear(e.target.value)
+  const handleChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNewTitle(e.target.value)
+    setNewTitle('')
+  }
+
+  const handleChangeYear = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNewYear(e.target.value)
+    setNewYear('')
+  }
+
+  const handleChangeDescription = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNewDescription(e.target.value)
+    setNewDescription('')
   }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     //setSubmitTrip(newTrip)
     addMutation.mutate({
+      image: '',
       location: newTrip,
+      title: newTitle,
       year: newYear,
       done: false,
+      description: newDescription,
     })
   }
 
-  // if (addMutation.isSuccess) {
-  //  return <p>Submitted: {newTrip}</p>
-  //}
-
-  //console.log(submitTrip) // just to know if grab properly
-
   return (
     <>
-      {/*<p>{newTrip}</p>
-      <p>Submitted: {submitTrip}</p>*/}
-
       <form onSubmit={handleSubmit}>
         <label htmlFor="location"> Location</label>
-        <input onChange={handleChange} value={newTrip} id="location"></input>
+        <input
+          onChange={handleChangeTrip}
+          value={newTrip}
+          id="location"
+        ></input>
+
+        <label htmlFor="title"> Title </label>
+        <input onChange={handleChangeTitle} value={newTitle} id="title"></input>
+
         <label htmlFor="year"> Year </label>
-        <input onChange={handleYearChange} value={newYear} id="year"></input>
+        <input onChange={handleChangeYear} value={newYear} id="year"></input>
+
+        <label htmlFor="handleChangeDescription"> Description </label>
+        <input
+          onChange={handleChangeDescription}
+          value={newDescription}
+          id="description"
+        ></input>
+
         <button>Submit</button>
       </form>
     </>

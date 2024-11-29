@@ -6,6 +6,9 @@ export function up(knex) {
   return knex.schema.createTable('trips', (table) => {
     table.increments()
     table.string('location')
+    table.string('title')
+    table.string('description')
+    table.string('image')
     table.string('year')
     table.boolean('done')
   })
