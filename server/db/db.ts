@@ -16,7 +16,8 @@ export function addTrip(newTrip: TripData) {
 }
 
 export async function updateLocationAno(updatedTrip: Trip): Promise<Trip> {
-  const { id, location, title, description, image, year, done } = updatedTrip
+  const { id, location, title, description, image, alt, year, done } =
+    updatedTrip
 
   await db('trips').where({ id }).update({
     location,
@@ -24,6 +25,7 @@ export async function updateLocationAno(updatedTrip: Trip): Promise<Trip> {
     title,
     description,
     image,
+    alt,
     done,
   })
 

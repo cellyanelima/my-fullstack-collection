@@ -21,7 +21,7 @@
 
 .footer {
   background-color: #9cc3ec;
-  color: #fff;
+  color: #130101;
   text-align: center;
   padding: 1px 1px;
   margin-top: 50px;
@@ -97,8 +97,8 @@
 
 .travel-card-button {
   display: inline-block;
-  padding: 10px 20px;
-  font-size: 1rem;
+  padding: 2px 5px;
+  font-size: medium;
   font-weight: bold;
   color: #fff;
   background-color: #2b6cb0;
@@ -106,6 +106,8 @@
   border-radius: 8px;
   text-decoration: none;
   transition: background-color 0.3s ease;
+  margin-right: 10px;
+  margin-top: 20px;
 }
 
 .travel-card-button:hover {

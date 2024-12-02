@@ -9,6 +9,7 @@ export function up(knex) {
     table.string('title')
     table.string('description')
     table.string('image')
+    table.string('alt')
     table.string('year')
     table.boolean('done')
   })

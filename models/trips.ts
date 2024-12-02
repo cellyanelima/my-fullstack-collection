@@ -2,7 +2,8 @@ export interface TripData {
   location: string
   title: string
   description: string
-  image: string
+  image?: string
+  alt?: string
   year: string
   done: boolean
 }
