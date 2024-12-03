@@ -34,10 +34,7 @@
     "express": "^4.17.2",
     "knex": "^2.5.1",
     "sqlite3": "^5.1.6",
-    "superagent": "^8.1.2"
-  },
-  "devDependencies": {
-    "@devacademy/eslint-config": "^1.10.1",
+    "superagent": "^8.1.2",    
     "@tanstack/eslint-plugin-query": "^5.12.2",
     "@tanstack/react-query": "^5.12.2",
     "@tanstack/react-query-devtools": "^5.13.3",
@@ -71,6 +68,9 @@
     "typescript": "^5.3.3",
     "vite": "^5.0.0",
     "vitest": "^1.2.0"
+  },
+  "devDependencies": {
+    
   },
   "prettier": {
     "semi": false,
