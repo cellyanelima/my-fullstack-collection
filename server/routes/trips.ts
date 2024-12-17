@@ -95,4 +95,23 @@ router.delete('/:id', async (req, res) => {
   }
 })
 
+router.post('/', async (req, res, next) => {
+  try {
+    const { location, year, title, description } = req.body
+
+    const id = await db.addNewTrip({
+      location,
+      year,
+      title,
+      description,
+      done: false,
+    })
+
+    const url = `/api/v1/contacts/${id}`
+    res.setHeader('Location', url)
+    res.status(201).json({ location: url })
+  } catch (e) {
+    next(e)
+  }
+})
 export default router

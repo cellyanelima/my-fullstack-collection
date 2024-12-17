@@ -11,7 +11,7 @@ export function getTripById(id: number): Promise<Trip> {
   return db('trips').where({ id }).select().first()
 }
 
-export function addTrip(newTrip: TripData) {
+export function addNewTrip(newTrip: TripData) {
   return db('trips').insert(newTrip)
 }
 
