@@ -1,7 +1,7 @@
 ## 📚 **Fullstack Collection App**
 
 ### **Project Description**  
-The **Fullstack Collection App** is a fullstack application designed to manage a custom collection of items (e.g., books, movies, or any other data). This project demonstrates the integration of a **React frontend**, a **Node.js/Express backend**, and a **database** using Knex for migrations and seeding. The application uses **React Query** for efficient data fetching and state management.  
+The **Fullstack Collection App** is a fullstack application designed to manage a custom collection of travels. This project demonstrates the integration of a **React frontend**, a **Node.js/Express backend**, and a **database** using Knex for migrations and seeding. The application uses **React Query** for efficient data fetching and state management.  
 
 **Technologies and Tools Used:**  
 - **Front-end:** React.js  
