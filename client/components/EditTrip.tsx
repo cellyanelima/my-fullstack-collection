@@ -56,10 +56,10 @@ export default function EditTrip({ trip, onCancel }: EditTripProps) {
   return (
     <div className="travel-card">
       <div className="travel-card-content">
-        <h2 className="travel-card-title">Edit Trip</h2>
+        <h2 className="travel-card-title">Edit Trip </h2>
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="location-label">Location</label>
+            <label htmlFor="location-label">Location </label>
             <input
               id="location-label"
               name="location"
@@ -68,6 +68,7 @@ export default function EditTrip({ trip, onCancel }: EditTripProps) {
               placeholder="Enter location"
             />
           </div>
+          <br />
           <div>
             <label htmlFor="title-label">Title</label>
             <input
@@ -79,8 +80,9 @@ export default function EditTrip({ trip, onCancel }: EditTripProps) {
               placeholder="Enter title"
             />
           </div>
+          <br />
           <div>
-            <label htmlFor="year-label">Year</label>
+            <label htmlFor="year-label">Year </label>
             <input
               id="year-label"
               className="travel-card-description"
@@ -90,8 +92,9 @@ export default function EditTrip({ trip, onCancel }: EditTripProps) {
               placeholder="Enter year"
             />
           </div>
+          <br />
           <div>
-            <label htmlFor="description-label">Description</label>
+            <label htmlFor="description-label">Description </label>
             <input
               id="description-label"
               className="travel-card-description"
